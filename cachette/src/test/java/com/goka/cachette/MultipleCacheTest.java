@@ -11,16 +11,16 @@ import java.io.File;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-public class AnyCacheTest {
+public class MultipleCacheTest {
 
     @Rule
     public TemporaryFolder tempDir = new TemporaryFolder();
 
-    public AnyCache cache;
+    public MultipleCache cache;
 
     @Before
     public void setUp() throws Exception {
-        cache = AnyCache.getInstance();
+        cache = MultipleCache.getInstance();
 
         // enable memory
         cache.setupMemoryCache();
@@ -40,13 +40,13 @@ public class AnyCacheTest {
     }
 
     @Test
-    public void anyCacheSet() throws Exception {
+    public void multipleCacheSet() throws Exception {
         cache.set("a", "a");
         assertEquals("a", cache.get("a"));
     }
 
     @Test
-    public void diskCacheGet() throws Exception {
+    public void multipleCacheGet() throws Exception {
         cache.set("a", "a");
         cache.set("b", "b");
         assertEquals("a", cache.get("a"));
@@ -54,7 +54,7 @@ public class AnyCacheTest {
     }
 
     @Test
-    public void diskCacheRemove() throws Exception {
+    public void multipleCacheRemove() throws Exception {
         cache.set("a", "a");
         assertEquals("a", cache.get("a"));
         cache.remove("a");
@@ -62,7 +62,7 @@ public class AnyCacheTest {
     }
 
     @Test
-    public void diskCacheRemoveAll() throws Exception {
+    public void multipleCacheRemoveAll() throws Exception {
         cache.set("a", "a");
         assertEquals("a", cache.get("a"));
         cache.removeAll(); // close and delete all files

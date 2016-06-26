@@ -6,14 +6,14 @@ import android.content.pm.PackageManager;
 import java.io.File;
 import java.io.IOException;
 
-public class AnyCache implements Cache<String> {
+public class MultipleCache implements Cache<String> {
 
-    private static AnyCache anyCache = new AnyCache();
+    private static MultipleCache anyCache = new MultipleCache();
 
     private MemoryCache<String> memoryCache;
     private DiskCache diskCache;
 
-    public static AnyCache getInstance() {
+    public static MultipleCache getInstance() {
         return anyCache;
     }
 
