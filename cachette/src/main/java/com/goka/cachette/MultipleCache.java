@@ -8,27 +8,27 @@ import java.io.IOException;
 
 public class MultipleCache implements Cache<String> {
 
-    private static MultipleCache anyCache = new MultipleCache();
+    private static MultipleCache multipleCache = new MultipleCache();
 
     private MemoryCache<String> memoryCache;
     private DiskCache diskCache;
 
     public static MultipleCache getInstance() {
-        return anyCache;
+        return multipleCache;
     }
 
     public void setupMemoryCache() {
-        anyCache.memoryCache = MemoryCache.getInstance();
+        multipleCache.memoryCache = MemoryCache.getInstance();
     }
 
     public void setupDiskCache(File dir, int appVersion, long maxSize) throws IOException {
-        anyCache.diskCache = DiskCache.getInstance();
-        anyCache.diskCache.open(dir, appVersion, maxSize);
+        multipleCache.diskCache = DiskCache.getInstance();
+        multipleCache.diskCache.open(dir, appVersion, maxSize);
     }
 
     public void setupDiskCache(Context context) throws IOException, PackageManager.NameNotFoundException {
-        anyCache.diskCache = DiskCache.getInstance();
-        anyCache.diskCache.open(context);
+        multipleCache.diskCache = DiskCache.getInstance();
+        multipleCache.diskCache.open(context);
     }
 
     @Override

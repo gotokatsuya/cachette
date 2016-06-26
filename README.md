@@ -45,7 +45,6 @@ cache.set("a", "a")
 // remove by key.
 cache.remove("a")
 
-
 // remove all cached source. 
 cache.removeAll()
 
