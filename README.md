@@ -15,7 +15,7 @@ cachette is cache library, implementing multiple cache.
 ### Multiple cache
 
 ```java
-public MultipleCache cache = MultipleCache.getInstance();
+MultipleCache cache = MultipleCache.getInstance();
 
 // enable memory
 cache.setupMemoryCache();
@@ -26,7 +26,7 @@ cache.setupDiskCache(context);
 // enable disk by args you like
 File cacheDir = ...;
 int appVersion = ...;
-int maxSize = ...;
+long maxSize = ...;
 cache.setupDiskCache(cacheDir, appVersion, maxSize);
 
 ```
